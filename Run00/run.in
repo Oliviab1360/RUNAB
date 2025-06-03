@@ -1,0 +1,42 @@
+!                              -*-f90-*-     (for emacs)
+!
+!  Runtime parameters for linear streaming instability.
+!
+&run_pars
+    nt = 100000000, it1 = 100
+    tmax = 25.132741228, dsnap = 6.2831853071795863
+    lpencil_check=T
+    isave = 5000
+    itorder = 5
+    cdt = 0.5
+    cdtv = 0.5
+    loutput_varn_at_exact_tsnap=T
+/
+&eos_run_pars
+/
+&hydro_run_pars
+/
+&density_run_pars
+  lcheck_negative_density = .true.
+  beta_glnrho_global = -0.1, 0.0, 0.0
+  idiff='hyper3-mesh'
+  diffrho_hyper3_mesh=20.
+/
+&shear_run_pars
+/
+&viscosity_run_pars
+  ivisc='hyper3-mesh'
+  nu_hyper3_mesh=20.
+/
+&dustdensity_run_pars
+  idiffd='hyper3-mesh'
+  diffnd_hyper3_mesh=20.
+/
+&dustvelocity_run_pars
+  ldragforce_gas=T
+  ldragforce_dust=T
+  iviscd='hyper3-mesh'
+  nud_hyper3_mesh=20.
+/
+&shock_run_pars
+/

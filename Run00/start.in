@@ -1,0 +1,35 @@
+!                              -*-f90-*-     (for emacs)
+!
+!  Initialization parameters for linear streaming instability.
+!
+&init_pars
+    xyz0 = -0.05, -0.05, -0.05 
+    Lxyz = 0.1, 0.1, 0.1 
+    lwrite_aux = .true.
+/
+&eos_init_pars
+    gamma = 1.0
+    rho0 = 1.0
+    cs0 = 1.0 
+/
+&hydro_init_pars
+    inituu='gaussian-noise'
+    ampluu = 1e-3
+    Omega = 1.0 
+/
+&density_init_pars
+    ldensity_nolog = .true.
+    beta_glnrho_global = -0.1, 0.0, 0.0
+/
+&shear_init_pars
+    qshear = 1.5
+/
+&dustdensity_init_pars
+    initnd='const_nd'
+    nd_const=1.0
+    ldustdensity_log=T
+/
+&dustvelocity_init_pars
+    inituud='vshear_dust'
+    tausd=0.1
+/
