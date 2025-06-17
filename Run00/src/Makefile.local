@@ -3,7 +3,7 @@
 ### Included by `Makefile'
 ###
 
-MPICOMM =  mpicomm
+MPICOMM =    mpicomm
 #IO      =   io_mpi2
 IO      =  io_dist
 

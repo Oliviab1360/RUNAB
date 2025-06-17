@@ -3,40 +3,52 @@
 !  Runtime parameters for linear streaming instability.
 !
 &run_pars
-    nt = 100000000, it1 = 100
-    tmax = 25.132741228, dsnap = 6.2831853071795863
+    nt = 1000000, it1 = 25
+    tmax = 6, dsnap = 6.2831853071795863
     lpencil_check=T
-    isave = 5000
-    itorder = 5
+    isave = 500
+    itorder = 3
     cdt = 0.5
     cdtv = 0.5
     loutput_varn_at_exact_tsnap=T
+    lwrite_dvar=T
 /
 &eos_run_pars
 /
 &hydro_run_pars
+  lpressuregradient_gas=T
+  lcoriolis_force=T
+  ladvection_velocity=T
 /
 &density_run_pars
+  ladvection_density=T
+  lcompression=T
   lcheck_negative_density = .true.
   beta_glnrho_global = -0.1, 0.0, 0.0
+  !beta_glnrho_global = 0.0, 0.0, 0.0
   idiff='hyper3-mesh'
-  diffrho_hyper3_mesh=20.
+  diffrho_hyper3_mesh=5.
 /
 &shear_run_pars
+  lshear_acceleration = T
 /
 &viscosity_run_pars
   ivisc='hyper3-mesh'
-  nu_hyper3_mesh=20.
+  nu_hyper3_mesh=5.
 /
 &dustdensity_run_pars
   idiffd='hyper3-mesh'
-  diffnd_hyper3_mesh=20.
+  diffnd_hyper3_mesh=5.
+  ldustcontinuity=T
 /
 &dustvelocity_run_pars
   ldragforce_gas=T
   ldragforce_dust=T
+  ladvection_dust=T
+  lcoriolisforce_dust=T
+
   iviscd='hyper3-mesh'
-  nud_hyper3_mesh=20.
+  nud_hyper3_mesh=5.
 /
 &shock_run_pars
 /
