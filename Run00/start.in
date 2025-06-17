@@ -28,7 +28,7 @@
 &dustdensity_init_pars
     initnd='const_nd'
     nd_const=1.0
-    ldustdensity_log=F
+    ldustdensity_log=T
 /
 &dustvelocity_init_pars
     inituud='vshear_dust'!,'gaussian-noise'
